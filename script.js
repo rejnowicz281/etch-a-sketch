@@ -1,4 +1,5 @@
 const sketchpad = document.getElementById("sketchpad");
+const resetButton = document.getElementById("reset-button");
 
 function gridLayout(rows, columns) {
   sketchpad.style.display = "grid";
@@ -15,3 +16,17 @@ function gridLayout(rows, columns) {
 
 innitialLayout = gridLayout(16, 16);
 innitialLayout;
+
+function resetGrid() {
+  sketchpad.removeAttribute("style");
+  sketchpad.innerHTML = "";
+}
+
+resetButton.addEventListener("click", function () {
+  resetGrid();
+
+  const rowsCount = prompt("How many rows?");
+  const columnsCount = prompt("How many columns?");
+
+  gridLayout(rowsCount, columnsCount);
+});
