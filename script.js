@@ -1,5 +1,11 @@
 const sketchpad = document.getElementById("sketchpad");
+
 const resetButton = document.getElementById("reset-button");
+
+const settings = {
+  rainbow: document.getElementById("rainbow-button"),
+  blackToWhite: document.getElementById("black-to-white-button")
+}
 
 function grid(rows, columns) {
   sketchpad.style.display = "grid";
