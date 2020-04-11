@@ -60,6 +60,6 @@ main{
 .box{
   border: 1px solid black;
 }
-.box:hover{
+.mouseOver{
   background-color: black;
 }
