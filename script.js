@@ -19,8 +19,14 @@ function mouseOver() {
   const allBoxes = document.querySelectorAll(".box");
 
   for (box of allBoxes) {
-    box.addEventListener("mouseover", function () {
-      this.classList.add("mouseOver");
+
+    box.addEventListener("mouseover", function (event) {
+      const randomRGB = {
+        R: Math.floor(Math.random() * 257),
+        G: Math.floor(Math.random() * 257),
+        B: Math.floor(Math.random() * 257)
+      }
+      event.currentTarget.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
     });
   }
 }
