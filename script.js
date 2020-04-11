@@ -1,20 +1,32 @@
 const sketchpad = document.getElementById("sketchpad");
 const resetButton = document.getElementById("reset-button");
 
-function gridLayout(rows, columns) {
+function grid(rows, columns) {
   sketchpad.style.display = "grid";
   sketchpad.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
   sketchpad.style.gridTemplateRows = `repeat(${columns}, 1fr)`;
 
   for (let i = 0; i < (rows * columns); i++) {
-    let box = document.createElement("div");
-    box.classList.add("box");
-    sketchpad.appendChild(box);
+    let div = document.createElement("div");
+    div.classList.add("box");
+    sketchpad.appendChild(div);
   }
 
+  mouseOver();
 }
 
-innitialLayout = gridLayout(16, 16);
+function mouseOver() {
+  const allBoxes = document.querySelectorAll(".box");
+
+  for (box of allBoxes) {
+    box.addEventListener("mouseover", function () {
+      this.classList.add("mouseOver");
+    });
+  }
+}
+
+
+innitialLayout = grid(24, 24);
 innitialLayout;
 
 function resetGrid() {
@@ -28,5 +40,5 @@ resetButton.addEventListener("click", function () {
   const rowsCount = prompt("How many rows?");
   const columnsCount = prompt("How many columns?");
 
-  gridLayout(rowsCount, columnsCount);
+  grid(rowsCount, columnsCount);
 });
