@@ -21,11 +21,11 @@ header{
   height: 30%;
 }
 header section{
-  margin: 5px;
+  margin: 8px;
 }
 header h1{
   font-size: 5em;
-  padding-bottom: 15px;
+  margin-bottom: 10px;
 }
 header button{
   display: inline-block;
