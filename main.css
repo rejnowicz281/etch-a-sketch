@@ -37,12 +37,24 @@ header button{
   margin-left: 15px;
 }
 header button:hover{
-  background-color: hsl(0, 0%, 30%);
-  color: hsl(0, 0%, 70%);
   cursor: pointer;
   animation-name: make-bigger;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+}
+#reset-button:hover{
+  background-color: hsl(0, 0%, 80%);
+}
+#rainbow-button:hover{
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+}
+#default-button:hover{
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 70%);
+}
+#black-to-white-button:hover{
+  background-color: hsl(0, 0%, 30%);
+  color: hsl(0, 0%, 70%);
 }
 @keyframes make-bigger{
   0%{
