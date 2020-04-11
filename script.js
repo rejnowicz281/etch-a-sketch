@@ -4,10 +4,11 @@ const resetButton = document.getElementById("reset-button");
 
 const settings = {
   rainbow: document.getElementById("rainbow-button"),
+  default: document.getElementById("default-button"),
   blackToWhite: document.getElementById("black-to-white-button")
 }
 
-function grid(rows, columns) {
+function setGrid(rows, columns) {
   sketchpad.style.display = "grid";
   sketchpad.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
   sketchpad.style.gridTemplateRows = `repeat(${columns}, 1fr)`;
@@ -25,21 +26,32 @@ function mouseOver() {
   const allBoxes = document.querySelectorAll(".box");
 
   for (box of allBoxes) {
-
-    box.addEventListener("mouseover", function (event) {
-      const randomRGB = {
-        R: Math.floor(Math.random() * 257),
-        G: Math.floor(Math.random() * 257),
-        B: Math.floor(Math.random() * 257)
-      }
-      event.currentTarget.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
+    box.addEventListener("mouseover", function () {
+      this.style.backgroundColor = "black";
     });
   }
+
+  settings.rainbow.addEventListener("click", function () {
+    for (box of allBoxes) {
+      box.addEventListener("mouseover", function (event) {
+        const randomRGB = {
+          R: Math.floor(Math.random() * 257),
+          G: Math.floor(Math.random() * 257),
+          B: Math.floor(Math.random() * 257)
+        }
+        event.currentTarget.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
+      });
+    }
+  });
+
+  settings.default.addEventListener("click", function () {
+    for (box of allBoxes) {
+      box.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "black";
+      });
+    }
+  });
 }
-
-
-innitialLayout = grid(24, 24);
-innitialLayout;
 
 function resetGrid() {
   sketchpad.removeAttribute("style");
@@ -52,5 +64,8 @@ resetButton.addEventListener("click", function () {
   const rowsCount = prompt("How many rows?");
   const columnsCount = prompt("How many columns?");
 
-  grid(rowsCount, columnsCount);
+  setGrid(rowsCount, columnsCount);
 });
+
+innitialLayout = setGrid(24, 24);
+innitialLayout;
