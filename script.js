@@ -33,13 +33,13 @@ function mouseOver() {
 
   settings.rainbow.addEventListener("click", function () {
     for (box of allBoxes) {
-      box.addEventListener("mouseover", function (event) {
+      box.addEventListener("mouseover", function () {
         const randomRGB = {
           R: Math.floor(Math.random() * 257),
           G: Math.floor(Math.random() * 257),
           B: Math.floor(Math.random() * 257)
         }
-        event.currentTarget.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
+        this.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
       });
     }
   });
@@ -49,6 +49,12 @@ function mouseOver() {
       box.addEventListener("mouseover", function () {
         this.style.backgroundColor = "black";
       });
+    }
+  });
+
+  settings.blackToWhite.addEventListener("click", function () {
+    for (box of allBoxes) {
+
     }
   });
 }
