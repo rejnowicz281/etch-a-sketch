@@ -25,13 +25,7 @@ function setGrid(rows, columns) {
 function mouseOver() {
   const allBoxes = document.querySelectorAll(".box");
 
-  for (box of allBoxes) { // innitial effect
-    box.addEventListener("mouseover", function () {
-      this.style.backgroundColor = "black";
-    });
-  }
-
-  settings.rainbow.addEventListener("click", function () {
+  function rainbowEffect() {
     for (box of allBoxes) {
       box.addEventListener("mouseover", function () {
         const randomRGB = {
@@ -42,21 +36,27 @@ function mouseOver() {
         this.style.backgroundColor = `rgb(${randomRGB.R}, ${randomRGB.G}, ${randomRGB.B})`;
       });
     }
-  });
+  }
 
-  settings.default.addEventListener("click", function () {
+  function defaultEffect() {
     for (box of allBoxes) {
       box.addEventListener("mouseover", function () {
         this.style.backgroundColor = "black";
       });
     }
-  });
+  }
 
-  settings.grayscale.addEventListener("click", function () {
-    for (box of allBoxes) {
+  function grayscaleEffect() {
 
-    }
-  });
+  }
+
+  defaultEffect(); // innitial effect
+
+  settings.rainbow.addEventListener("click", rainbowEffect); // on click, switch to rainbow effect
+
+  settings.default.addEventListener("click", defaultEffect); // on click, switch to default effect
+
+  settings.grayscale.addEventListener("click", grayscaleEffect); // on click, switch to grayscale effect
 }
 
 function resetGrid() {
