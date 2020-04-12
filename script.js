@@ -1,8 +1,7 @@
+const sketchpad = document.getElementById("sketchpad");
 const resetButton = document.getElementById("reset-button");
 
 function setGrid(rows, columns) {
-  const sketchpad = document.getElementById("sketchpad");
-
   sketchpad.style.display = "grid";
   sketchpad.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
   sketchpad.style.gridTemplateRows = `repeat(${columns}, 1fr)`;
