@@ -52,7 +52,7 @@ function mouseOver() {
     }
   });
 
-  settings.grayScale.addEventListener("click", function () {
+  settings.grayscale.addEventListener("click", function () {
     for (box of allBoxes) {
 
     }
