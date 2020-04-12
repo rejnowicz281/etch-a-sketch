@@ -42,6 +42,14 @@ header button:hover{
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+@keyframes make-bigger{
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.2);
+  }
+}
 #reset-button:hover{
   background-color: hsl(0, 0%, 80%);
 }
@@ -55,14 +63,6 @@ header button:hover{
 #grayscale-button:hover{
   background-color: hsl(0, 0%, 30%);
   color: hsl(0, 0%, 70%);
-}
-@keyframes make-bigger{
-  0%{
-    transform: scale(1);
-  }
-  100%{
-    transform: scale(1.2);
-  }
 }
 main{
   height: 70%;
