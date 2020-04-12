@@ -1,14 +1,8 @@
-const sketchpad = document.getElementById("sketchpad");
-
 const resetButton = document.getElementById("reset-button");
 
-const settings = {
-  rainbow: document.getElementById("rainbow-button"),
-  default: document.getElementById("default-button"),
-  grayscale: document.getElementById("grayscale-button")
-}
-
 function setGrid(rows, columns) {
+  const sketchpad = document.getElementById("sketchpad");
+
   sketchpad.style.display = "grid";
   sketchpad.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
   sketchpad.style.gridTemplateRows = `repeat(${columns}, 1fr)`;
@@ -24,6 +18,12 @@ function setGrid(rows, columns) {
 
 function mouseOver() {
   const allBoxes = document.querySelectorAll(".box");
+
+  const settings = {
+    rainbow: document.getElementById("rainbow-button"),
+    default: document.getElementById("default-button"),
+    grayscale: document.getElementById("grayscale-button")
+  }
 
   function rainbowEffect() {
     for (box of allBoxes) {
@@ -59,13 +59,9 @@ function mouseOver() {
   settings.grayscale.addEventListener("click", grayscaleEffect); // on click, switch to grayscale effect
 }
 
-function resetGrid() {
+resetButton.addEventListener("click", function () {
   sketchpad.removeAttribute("style");
   sketchpad.innerHTML = "";
-}
-
-resetButton.addEventListener("click", function () {
-  resetGrid();
 
   const rowsCount = prompt("How many rows?");
   const columnsCount = prompt("How many columns?");
