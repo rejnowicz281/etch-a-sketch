@@ -5,7 +5,7 @@ const resetButton = document.getElementById("reset-button");
 const settings = {
   rainbow: document.getElementById("rainbow-button"),
   default: document.getElementById("default-button"),
-  blackToWhite: document.getElementById("black-to-white-button")
+  grayscale: document.getElementById("grayscale-button")
 }
 
 function setGrid(rows, columns) {
@@ -25,7 +25,7 @@ function setGrid(rows, columns) {
 function mouseOver() {
   const allBoxes = document.querySelectorAll(".box");
 
-  for (box of allBoxes) {
+  for (box of allBoxes) { // innitial effect
     box.addEventListener("mouseover", function () {
       this.style.backgroundColor = "black";
     });
@@ -52,7 +52,7 @@ function mouseOver() {
     }
   });
 
-  settings.blackToWhite.addEventListener("click", function () {
+  settings.grayScale.addEventListener("click", function () {
     for (box of allBoxes) {
 
     }
