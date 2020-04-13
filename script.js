@@ -46,7 +46,13 @@ function mouseOver() {
   }
 
   function grayscaleEffect() {
-
+    for (box of allBoxes) {
+      let lightness = 0;
+      box.addEventListener("mouseover", function () {
+        this.style.backgroundColor = `hsl(0, 0%, ${lightness}%)`;
+        lightness = lightness + 15;
+      });
+    }
   }
 
   defaultEffect(); // innitial effect
