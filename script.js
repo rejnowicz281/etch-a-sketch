@@ -47,7 +47,7 @@ function mouseOver() {
 
   function grayscaleEffect() {
     for (box of allBoxes) {
-      let lightness = 0;
+      let lightness = 10;
       box.addEventListener("mouseover", function () {
         this.style.backgroundColor = `hsl(0, 0%, ${lightness}%)`;
         lightness = lightness + 15;
